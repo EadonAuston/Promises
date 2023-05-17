@@ -8,7 +8,7 @@
  * an argument and 7
 */
 
-const first = () => Promise.resolve(3);
+const first = () => Promise.resolve(10);
 const second = (val) => {
   return Promise.resolve(val + 7);
 }
