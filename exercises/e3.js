@@ -17,7 +17,7 @@
 export const getPromise = (num) => {
   // Your code goes here...
   if (typeof num === "number" && num % 1 === 0){
-    return new Promise((res) => {res(num)})
+    return new Promise((res) => res(num))
   } else return 0
 };
 

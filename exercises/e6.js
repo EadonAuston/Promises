@@ -15,14 +15,11 @@
  */
 
 export const handlePromise = () => {
-  return new Promise((res, rej) => {rej("REJECTED")})
+  return new Promise((_, rej) => rej("REJECTED"))
     .catch((reason) => console.log(reason))
-    .finally(() => {console.log('This promise is finished!')})
+    .finally(() => console.log('This promise is finished!'))
   
 }
-
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-6"

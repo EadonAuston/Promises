@@ -35,10 +35,10 @@ export function alwaysThrows() {
  */
 
 export function onReject(para) {
-  if (typeof para === "string") {
-    console.log(para);
-  } else {
+  if (para.message) {
     console.log(para.message);
+  } else {
+    console.log(para);
   }
 }
 
@@ -64,10 +64,7 @@ export function onReject(para) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve();
-
-promise
-  .then(iterate)
+export const promise = Promise.resolve(iterate(1))
   .then(iterate)
   .then(iterate)
   .then(iterate)
@@ -79,11 +76,7 @@ promise
   .then(iterate)
   .then(iterate)
   .then(iterate)
-  .catch((error) => {
-    console.error(error);
-  });
-
-  
+  .catch(onReject);
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"

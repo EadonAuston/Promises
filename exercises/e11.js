@@ -57,11 +57,7 @@ const getData = fetch(usersUrl);
 
 // Your code goes here ...
 export const result = getData
-  .then((data) => {
-   
-    return data.json();
-  })
-
+  .then((data) => data.json())
   .then((parsedData) => {
     console.log(getLoginList(parsedData));
     return getLoginList(parsedData);

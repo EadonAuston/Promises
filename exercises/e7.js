@@ -22,7 +22,6 @@
 export function parsePromised(json) {
   return new Promise((res, rej) => {
     try {
-      JSON.parse(json);
       res(JSON.parse(json));
     } catch (reason) {
       rej(reason);
@@ -39,7 +38,6 @@ export function parsePromised(json) {
 
 export function onReject(errorObj) {
   console.log(errorObj.message);
-  return errorObj.message;
 }
 
 /**
@@ -54,14 +52,9 @@ export function onReject(errorObj) {
  * Example: export const promiseHandler = () => return <your code>
  */
 
+
 export const handlePromise = (promise) => {
- return promise.then(
-    (res) => {
-      console.log(res)
-     return res
-    },
-    (rej) => {onReject(rej)}
-  );
+  return promise.then((res) => res).catch((e) => e.message ? onReject(e) : e);
 };
 
 // === TEST YOURSELF ===
